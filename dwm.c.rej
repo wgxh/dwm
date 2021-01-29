@@ -1,0 +1,11 @@
+--- dwm.c
++++ dwm.c
+@@ -730,6 +751,8 @@ drawbar(Monitor *m)
+ 	}
+ 
+ 	for (c = m->clients; c; c = c->next) {
++		if (ISVISIBLE(c))
++			n++;
+ 		occ |= c->tags;
+ 		if (c->isurgent)
+ 			urg |= c->tags;
